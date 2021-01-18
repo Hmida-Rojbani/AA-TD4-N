@@ -1,0 +1,12 @@
+FUNCTION est_AVL(A :AB) : BOOLEAN
+BEGIN
+    IF (A = NIL OR feuille(A)) THEN
+        RETURN TRUE
+    ELSE_IF ((A^.fg = NIL OR max_ab(A^.fg) <= A^.val) 
+    AND (A^.fd = NIL OR min_ab(A^.fd) > A^.val)
+    AND abs(hauteur(A^.fg)-hauteur(A^.fd)) <= 1) THEN
+        RETURN est_AVL(A^.fg) AND est_AVL(A^.fd)
+    ELSE
+        RETURN FALSE
+    END_IF
+END
