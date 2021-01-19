@@ -1,0 +1,18 @@
+FUNCTION est_AVL(A : AVL) : AVL
+VAR
+    pt_fg, pt_fd : AVL
+BEGIN
+    IF (A = NIL) THEN
+        RETURN NIL
+    ELSE_IF( abs(A^.bal) > 1)
+        RETURN  A
+    ELSE  
+        pt_fg := est_AVL(A^.fg)  
+        pt_fd := est_AVL(A^.fd)
+        IF (pt_fg = NIL) THEN
+            RETURN pt_fd
+        ELSE
+            RETURN pt_fg
+        END_IF 
+    END_IF
+END
