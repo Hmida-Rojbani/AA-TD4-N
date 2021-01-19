@@ -1,0 +1,18 @@
+PROCEDURE calcul_bal(A :AVL)
+BEGIN
+    IF (A <> NIL) THEN
+        A^.bal = hauteur(A^.fg) - hauteur(A^.fd)
+        calcul_bal(A^.fg)
+        calcul_bal(A^.fd)
+    END_IF
+END
+
+
+FUNCTION hauteur(A :AVL) : INTEGER
+BEGIN
+    IF (A = NIL) THEN
+        RETURN 0
+    ELSE
+        RETURN 1 + max(hauteur(A^.fg), hauteur(A^.fd))
+    END_IF
+END
