@@ -1,0 +1,12 @@
+PROCEDURE scissionAVL(A : AVL , x : INTEGER,VAR B :AVL, VAR C : AVL)
+BEGIN
+    IF (A <> NIL) THEN
+        IF (A^.val <= x) THEN
+            insertAVL(B, A^.val)
+        ELSE
+            insertAVL(C, A^.val)
+        END_IF
+        scissionAVL(A^.fg, x ,B, C)
+        scissionAVL(A^.fd, x ,B, C)
+    END_IF
+END
