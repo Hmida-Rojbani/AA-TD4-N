@@ -1,0 +1,26 @@
+ALGORITHM createAVL
+VAR
+    A : AVL := NIL
+    V : STRING 
+BEGIN
+    Lire(V) // V trie en ordre crois 
+    A := constAVL(V, 1, V.length)
+END 
+
+FUNCTION constAVL(V: STRING, d : INTEGER, f: INTEGER) : AVL
+VAR
+    mid : INTEGER
+    pt : AVL
+BEGIN 
+    IF (d <= f) THEN
+        mid :=  (d + f) DIV 2
+        pt := creer_noeud()
+        pt^.val = V[mid]
+        pt.fg = constAVL(V, d, mid - 1)
+        pt^.fd = constAVL(V, mid + 1, f)
+        RETURN pt
+    ELSE
+        RETURN NIL
+    END_IF
+
+END
