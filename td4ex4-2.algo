@@ -1,0 +1,13 @@
+FUNCTION fusionAVL(A :AVL, B : AVL, x : INTEGER) : AVL
+VAR
+    pt : AVL
+BEGIN
+    pt := creer_noeud
+    pt^.val := x
+    pt^.fg := A
+    pt^.fd := B
+    IF (abs(hauteur(A) - hauteur(B)) > 1 ) THEN
+        reequilibrage(pt)
+    END_IF
+    RETURN pt
+END
