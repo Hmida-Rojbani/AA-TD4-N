@@ -1,0 +1,10 @@
+FUNCTION equilibree(A :AVL) : BOOLEAN
+BEGIN
+    IF (A = NIL) THEN
+        RETURN TRUE
+    ELSE_IF (abs(A^.fg^.haut - A^.fd^.haut) > 1) THEN
+        RETURN FALSE
+    ELSE
+        RETURN equilibree(A^.fg) AND equilibree(A^.fd)
+    END_IF
+END
